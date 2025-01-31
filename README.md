@@ -114,3 +114,8 @@ This is me [nice ass baby](https://www.facebook.com/mindaugas.samsonas)
 
 
 ![kazkas](https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Cat_August_2010-4.jpg/1200px-Cat_August_2010-4.jpg)
+ 
+ kaip imesi i git
+ 1. add
+ 2. commit su -m "message"
+ 3. push -u -f
