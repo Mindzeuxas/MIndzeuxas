@@ -41,7 +41,8 @@ const person = {
 // ctrl+d yra multicursorius ir suranda kitas reiksmes
 //ctrl+shift+l pazymi visus vienodas eilutes
 
-
+//const su objektais negalima keisti pacio objekto, bet galima pakeisti kas yra jo viduje
+//pvz Pvz gali freqCounter.a = 1, freqCounter.b = 2, bet negaletum freqCounter = {} naujai
 
 
 
