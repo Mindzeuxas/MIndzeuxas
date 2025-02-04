@@ -41,9 +41,9 @@ console.log(findUniq([...lai]));
     }
     for(let item = 0; item < arr.length; item++)
     {
-       if( map.get(arr[item]) === 1)
-        return  arr[item];
+       if(map.get(arr[item]) === 1)
+        return arr[item];
     }
-    return '';
+    return 'None was unique';
   }
   
