@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "numbers" : "node --watch js/variables/06-numbers.js",
     "ifai":"node --watch js/03-if.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
