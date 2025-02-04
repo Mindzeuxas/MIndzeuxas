@@ -1,5 +1,6 @@
 
 console.log(number(99));
+console.log(canDrive(20, true));
 
 function number(num)
 {
