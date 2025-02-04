@@ -12,7 +12,7 @@ Find the unique number (this kata)
 Find the unique string
 Find The Unique
 */
-let lai = [5, 0, 0];
+let lai = [0, 0, 1];
 console.log(findUniq([...lai]));
 
 
@@ -39,9 +39,11 @@ console.log(findUniq([...lai]));
     {
         map.set(item, (map.get(item)||0) + 1);
     }
-    for(let item of map)
+    for(let item = 0; item < arr.length; item++)
     {
-       return map.get(item) === 1 ? map.get(item): '';
+       if( map.get(arr[item]) === 1)
+        return  arr[item];
     }
+    return '';
   }
   
