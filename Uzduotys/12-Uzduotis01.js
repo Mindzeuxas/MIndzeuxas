@@ -36,14 +36,10 @@ console.log(findUniq([...lai]));
   {
     let map = new Map();
     for(let item of arr)
-    {
         map.set(item, (map.get(item)||0) + 1);
-    }
     for(let item = 0; item < arr.length; item++)
-    {
        if(map.get(arr[item]) === 1)
         return arr[item];
-    }
     return 'None was unique';
   }
   

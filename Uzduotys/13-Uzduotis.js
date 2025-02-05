@@ -15,3 +15,23 @@ Tips: Order of other numbers should not change.
 
 
 */
+console.log(move_zeros([12, 0, 10, 0, 8, 12, 7, 6, 0, 4, 10, 12, 0], false));
+
+function move_zeros(arrNum, isRight){
+    //Your Code logic should written here
+    let arr =[];
+    if (isRight === undefined)
+        isRight = true;
+    for (let j = 0; j < arrNum.length; j++)
+    {
+         if ((!isRight && arrNum[j] === 0) || (isRight && arrNum[j] !== 0))
+          arr.push(arrNum[j]);       
+    }
+    for(let i = 0; i < arrNum.length; i++)
+    { 
+        if ((!isRight && arrNum[i] !== 0) || (isRight && arrNum[i] === 0))
+            arr.push(arrNum[i]);
+    }    
+    return arr;
+
+}
