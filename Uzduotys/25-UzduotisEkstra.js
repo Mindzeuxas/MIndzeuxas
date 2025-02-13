@@ -92,9 +92,4 @@ helper.pageIndex(-10); // should == -1*/
         ${helper.pageIndex(-1)}; // should == 0 (zero based index)
         `);
     */
-        console.log(`
-            ${helper.pageCount()}; // should == 0
-            ${helper.itemCount()}; // should == 0
-            ${helper.pageItemCount(-1)}; //  should == 0
-            ${helper.pageIndex(22)}; // should == 0 (zero based index)
-            `);
+       
