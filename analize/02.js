@@ -263,7 +263,7 @@ function deleteThreeLast(str)
 
 // 14. Prie string'o "Likusios dienos: " pridėkite skaičių 5 iš daysLeft kintamojo.
 
-function howManyDays(str)
+function howManyDays()
 {
     let daysLeft = 5;
     return `Likusios dienos: ${daysLeft}`; 

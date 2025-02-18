@@ -34,7 +34,7 @@ console.log(polindrome('level'));
 function secondBiggest(arr)
 {
    // let array = arr.;
-    return array.at(-2);
+    return [...arr].sort((a, b) => b - a)[1];   
 }
 
 console.log(secondBiggest([10, 5, 8, 20]));
@@ -45,6 +45,10 @@ console.log(secondBiggest([10, 5, 8, 20]));
  * 
  * Pvz. generuotiSlaptazodi(8) -> "aB3dE5kL"
  */
+function generator(sk)
+{
+    
+}
 
 
 /**

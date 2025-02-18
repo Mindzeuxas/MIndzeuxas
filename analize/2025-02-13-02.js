@@ -10,7 +10,7 @@ const numbers1 = [1, 2, 3, 4, 5];
  {
     let sum = 0;
     for (let i = 0; i < arr.length; i++)
-        sum += arr;
+        sum += arr[i];
     return sum;
  }
 // Sprendimas su array metodu (reduce):
@@ -69,7 +69,7 @@ function maxByFor(arr)
  
  function maxByFunc(arr)
  {
-    return Math.max(...arr);
+    return Math.max([...arr]);
  }
 
  //console.log(maxByFunc(numbers3));
@@ -407,6 +407,14 @@ function nestedWithFor(arr)
     return newArr;
 }
 
+/*function nestedWithFor(arr)
+{
+    let newArr = [];
+    for (let i = 0; i < arr.length; i++)
+            newArr.push(...arr[i]);
+    return newArr;
+} */
+
 // Sprendimas su flat metodu:
 // Jūsų kodas čia...
  
@@ -426,9 +434,9 @@ const arrB = [3, 4, 5, 6];
 
 function unionFor(arr, arr2)
 {
-    let longer = arr.length > arr2.length ? arr.length : arr2.length;
+    //let longer = arr.length > arr2.length ? arr.length : arr2.length;
     let newArr = [];
-    for(let i = 0; i < longer; i++)
+    for(let i = 0; i < arr.length; i++)
         if (arr2.includes(arr[i]))
             newArr.push(arr[i]);
     return newArr;
@@ -475,7 +483,7 @@ function evenOddReduce(arr)
     
 }
  
-//console.log(evenOddFor([...numbers19]));
+//console.log(evenOddReduce([...numbers19]));
 
 // =============================================
 // Užduotis 20: Sukurti naują masyvą, kuriame kiekvienas elementas yra pradinio masyvo elementų kumuota suma (cumulative sum)
@@ -497,6 +505,7 @@ function kumSumFor(arr)
     return newArr;
 } 
 
+
 // Sprendimas su reduce:
 // Jūsų kodas čia...
 
@@ -505,8 +514,33 @@ function kumSumReduce(arr)
    return arr.map((index) => arr.slice(0, index + 1).reduce((a, b) => a + b)); 
 }
 
-//console.log(kumSumReduce([...numbers20]));
+function kumSumReduce2(arr)
+{
+    return arr.reduce((newArr, item, index) => {
+         if (index === 0) newArr.push(item); 
+            else newArr.push(newArr[index - 1] + item);
+            return newArr;
+    } ,[]);
+}
+
+
 
 
  // Paklausti kai reikia inicializuoti daugiau nei viena reiksme reduce funkcijoje
 
+
+/*The splice() method reads the length property of this. It then updates the integer-keyed properties and the length property as needed.
+
+js
+Copy to Clipboard
+const arrayLike = {
+  length: 3,
+  unrelated: "foo",
+  0: 5,
+  2: 4,
+};
+console.log(Array.prototype.splice.call(arrayLike, 0, 1, 2, 3));
+// [ 5 ]
+console.log(arrayLike);
+// { '0': 2, '1': 3, '3': 4, length: 4, unrelated: 'foo' }*/
+/*is kur atsirado '3': 4?*/
