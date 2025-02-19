@@ -9,5 +9,8 @@ function generate(sk)
 
     // call function random string with length
     console.log(generate(30));
+    console.log(typeof NaN);
+    
+    
     
     

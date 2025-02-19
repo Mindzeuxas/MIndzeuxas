@@ -14,5 +14,12 @@ console.log (10, 20, 50);
 
 const colorsA = ["red", "green", "blue", "yellow", "red", "orange"];
 
-let array = colorsA.filter((item, index, arr) => arr.indexOf(item) !== index);
+let array = colorsA.filter((item, index, arr) => arr.indexOf(item) !== arr.lastIndexOf(item));
+console.clear();
 console.log(array);
+
+
+
+
+//console.log(array2);
+
