@@ -108,10 +108,8 @@ function unikalusSkaiciai(arr)
 {
     let newArr = [];
     for(let i = 0; i < arr.length; i++)
-    {
         if (!newArr.includes(arr[i]))
             newArr.push(arr[i]);
-    }
     return newArr;
 }
 console.log(unikalusSkaiciai([1, 2, 2, 3, 4, 4, 5]));

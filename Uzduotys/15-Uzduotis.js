@@ -21,3 +21,5 @@ function geometricSequenceElements(a, r, n){
     }
     return str;
   }
+  
+  

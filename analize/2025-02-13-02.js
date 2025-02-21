@@ -1,6 +1,18 @@
 // =============================================
 // Užduotis 1: Suskaičiuoti visų masyvo skaičių sumą
 // =============================================
+
+function grazusSutvarkymas(uzdNmb,rez1, rez2, secondName, rez3)
+{
+    console.log(`================================= ${uzdNmb} uzduotis =============================================`);
+    console.log(`Sprendimas su for ciklu: ${rez1}`);
+    console.log(`Sprendimas su ${secondName} metodu: ${rez2}`);
+    if (rez3 !== undefined)
+       console.log(`Dar vienas sprendimas kitu budu: ${rez3}`);
+    console.log(`===========================================================================================`);
+   return ''; 
+}
+
 const numbers1 = [1, 2, 3, 4, 5];
  
 // Sprendimas su for ciklu:
@@ -20,6 +32,8 @@ function redSum(arr)
     return arr.reduce((a, b) => a + b);
 } 
 
+console.log(grazusSutvarkymas(1, forSum(numbers1), redSum(numbers1), 'reduce'));
+
 
 // =============================================
 // Užduotis 2: Suskaičiuoti, kiek masyvo elementų yra lyginiai
@@ -36,7 +50,8 @@ function howManyEvenFor(arr)
             count++;
     return count;
 }
- 
+
+
 // Sprendimas su filter metodu:
 // Jūsų kodas čia...
  
@@ -44,7 +59,7 @@ function howManyEvenFor(arr)
  {
     return arr.filter((a) => a % 2 === 0).length;
  }
- 
+ console.log(grazusSutvarkymas(2, howManyEvenFor(numbers2), howManyEvenFilter(numbers2), 'filter'));
  //console.log(howManyEvenFilter(numbers2));
  
 // =============================================
@@ -69,9 +84,9 @@ function maxByFor(arr)
  
  function maxByFunc(arr)
  {
-    return Math.max([...arr]);
+    return Math.max(...arr);
  }
-
+ console.log(grazusSutvarkymas(3, maxByFor(numbers3),maxByFunc(numbers3), 'Math.max and spread'));
  //console.log(maxByFunc(numbers3));
  
 // =============================================
@@ -86,7 +101,7 @@ const target = 2;
  {
     let count = 0;
     for (let i = 0; i < arr.length; i++) 
-        if (numbers[i] === symb)
+        if (arr[i] === symb)
             count++;
     return count;
  }
@@ -97,6 +112,7 @@ const target = 2;
  {
     return arr.filter((a) => a === symb).length;
  }
+ console.log(grazusSutvarkymas(4, pofFor(numbers4, target), pofFil(numbers4, target), 'filter'));
  
  //console.log(pofFil(numbers4));
  
@@ -125,7 +141,7 @@ const numbers5 = [-3, 0, 5, -1, 8, -2];
  {
     return arr.filter((a) => a > 0);
  }
- 
+ console.log(grazusSutvarkymas(5, posFor(numbers5), posFil(numbers5), 'filter'));
 // =============================================
 // Užduotis 6: Rasti visų masyvo elementų sandaugą
 // =============================================
@@ -146,6 +162,7 @@ function mulByRed(arr)
 {
     return arr.reduce((a, b) => a * b); 
 }
+console.log(grazusSutvarkymas(6, forForMul(numbers6), mulByRed(numbers6), 'reduce'));
 // =============================================
 // Užduotis 7: Apversti masyvą (sukurti naują apverstą masyvą)
 // =============================================
@@ -167,7 +184,7 @@ function newArrReversed(arr)
 {
     return [...arr].reverse();
 }
- 
+console.log(grazusSutvarkymas(7, newArrayFor(array7), newArrReversed(array7), 'reverse')); 
 //console.log(newArrReversed(array7));
 
 // =============================================
@@ -193,7 +210,7 @@ const searchElement = 'c';
  {
     return arr.indexOf(target);
  }
- 
+ console.log(grazusSutvarkymas(8, witchElementFor(array8, searchElement), witchElementIndex(array8, searchElement), 'indexOf'));
  
 // =============================================
 // Užduotis 9: Patikrinti, ar masyvas yra surikiuotas didėjimo tvarka
@@ -217,7 +234,8 @@ const array9 = [1, 3, 5, 7, 4, 9];
  {
     return arr.every((num, i) => i === 0 || num >= arr[i - 1]);
  }
- 
+ console.log(grazusSutvarkymas(9, arrayAscFor(array9), arrAscEvery(array9), 'every'));
+ //console.log(arrAscEvery(array9));
  
 // =============================================
 // Užduotis 10: Sukurti naują masyvą, kurio kiekvienas elementas yra pradinio masyvo elemento kvadratas
@@ -240,7 +258,7 @@ const numbers10 = [1, 2, 3, 4, 5];
  {
     return arr.map((n) => n * n);
  }
- 
+ console.log(grazusSutvarkymas(10, forSquare(numbers10), mapSquare(numbers10), 'map'));
 
 // =============================================
 // Užduotis 11: Susumuoti tik nelyginius masyvo elementus
@@ -265,7 +283,7 @@ const numbers11 = [1, 2, 3, 4, 5, 6];
  {
     return arr.filter((a) => a % 2 === 0).reduce((a, b) => a + b);
  }
-
+ console.log(grazusSutvarkymas(11, oddSumFor(numbers11), oddSumFillRed(numbers11), 'filter and reduce'));
 // =============================================
 // Užduotis 12: Apskaičiuoti masyvo elementų vidurkį
 // =============================================
@@ -288,7 +306,7 @@ function averageFor(arr)
  {
     return arr.reduce((a, b) => a + b) / arr.length;
  }
- 
+ console.log(grazusSutvarkymas(12, averageFor(numbers12), averageReduce(numbers12), 'reduce'));
 // =============================================
 // Užduotis 13: Pašalinti pasikartojančius elementus iš masyvo
 // =============================================
@@ -313,7 +331,7 @@ function sameFor(arr)
  {
     return new Set([...arr]);
  } 
-
+ console.log(grazusSutvarkymas(13, sameFor(numbers13), someSet(numbers13), 'Set'));
  // =============================================
 // Užduotis 14: Rasti antrą didžiausią elementą masyve
 // =============================================
@@ -330,7 +348,7 @@ function secondBiggestFor(arr)
         if(biggest < arr[i])
             biggest = arr[i];    
     for (let i = 0; i < arr.length; i++)
-        if (secondBiggest < arr[i] && secondBiggest !== biggest)
+        if (secondBiggest < arr[i] && arr[i] !== biggest)
             secondBiggest = arr[i];
     return secondBiggest;
 }
@@ -339,9 +357,12 @@ function secondBiggestFor(arr)
 // Jūsų kodas čia...
 function secondBiggestSort(arr)
 {
-    return [...arr].sort((a, b) => b - a)[1];
-}
 
+    return [...arr].sort((a, b) => b - a)[1];
+    
+    
+}
+console.log(grazusSutvarkymas(14, secondBiggestFor(numbers14), secondBiggestSort(numbers14), 'sort'));
 // =============================================
 // Užduotis 15: Suskaičiuoti, kiek masyvo elementų yra didesni už duotą slenkstį
 // =============================================
@@ -365,7 +386,7 @@ function howBiggerFor(arr, holder)
  {
     return arr.filter((n) => n > holder).length;
  }
- 
+ console.log(grazusSutvarkymas(15, howBiggerFor(numbers15, threshold), biggerThanFilter(numbers15, threshold), 'filter'));
 // =============================================
 // Užduotis 16: Sujungti du masyvus į vieną
 // =============================================
@@ -388,7 +409,7 @@ function concatWithConcat(arr, arr2)
 {
     return arr.concat(arr2);
 } 
-
+console.log(grazusSutvarkymas(16, concatWithFor([...arrayA], [...arrayB]), concatWithConcat([...arrayA], [...arrayB]), 'concat'));
 // =============================================
 // Užduotis 17: Išlyginti (flatten) masyvą, kurio elementai yra masyvai (vieno lygmens)
 // Pvz.: [[1,2], [3,4]] -> [1,2,3,4]
@@ -407,13 +428,13 @@ function nestedWithFor(arr)
     return newArr;
 }
 
-/*function nestedWithFor(arr)
+function nestedWithForSpread(arr)
 {
     let newArr = [];
     for (let i = 0; i < arr.length; i++)
             newArr.push(...arr[i]);
     return newArr;
-} */
+} 
 
 // Sprendimas su flat metodu:
 // Jūsų kodas čia...
@@ -422,7 +443,7 @@ function nestedWithFor(arr)
  {
     return arr.flat();
  }
- 
+ console.log(grazusSutvarkymas(17, nestedWithFor(nestedArray), nestedWithFlat(nestedArray), 'flat', nestedWithForSpread(nestedArray)));
 // =============================================
 // Užduotis 18: Rasti bendrus elementus tarp dviejų masyvų
 // =============================================
@@ -449,7 +470,7 @@ function unionFilter(arr, arr2)
     return arr2.filter((a) => arr.some(b => a === b));
 }
  
- 
+console.log(grazusSutvarkymas(18, unionFor(arrA, arrB), unionFilter(arrA, arrB), 'filter')); 
 // =============================================
 // Užduotis 19: Sukurti objektą, kuriame masyvo elementai suskirstyti į "lyginiai" ir "nelyginiai"
 // =============================================
@@ -462,9 +483,7 @@ function evenOddFor(arr)
 {
     let object = {lyginiai:[], nelyginiai:[]};
     for (let i = 0; i < arr.length; i++)
-        if (arr[i] % 2 === 0)
-            object.lyginiai.push(arr[i]);
-        else object.nelyginiai.push(arr[i]);
+        (arr[i] % 2 === 0)? object.lyginiai.push(arr[i]): object.nelyginiai.push(arr[i]);
     return object;
 }
 
@@ -475,14 +494,12 @@ function evenOddFor(arr)
 function evenOddReduce(arr)
 {
     return arr.reduce((obj, item) => {
-        if (item % 2 === 0)
-            obj.lyginiai.push(item);
-        else obj.nelyginiai.push(item);
+         (item % 2 === 0) ? obj.lyginiai.push(item) : obj.nelyginiai.push(item);
        return obj;
     }, {lyginiai:[], nelyginiai:[]});
     
 }
- 
+console.log(grazusSutvarkymas(19, evenOddFor(numbers19), evenOddReduce(numbers19), 'reduce'));
 //console.log(evenOddReduce([...numbers19]));
 
 // =============================================
@@ -509,21 +526,15 @@ function kumSumFor(arr)
 // Sprendimas su reduce:
 // Jūsų kodas čia...
 
-function kumSumReduce(arr)
-{
-   return arr.map((index) => arr.slice(0, index + 1).reduce((a, b) => a + b)); 
-}
-
 function kumSumReduce2(arr)
 {
     return arr.reduce((newArr, item, index) => {
-         if (index === 0) newArr.push(item); 
-            else newArr.push(newArr[index - 1] + item);
+         (index === 0) ? newArr.push(item) : newArr.push(newArr[index - 1] + item);
             return newArr;
     } ,[]);
 }
 
-
+console.log(grazusSutvarkymas(20, kumSumFor([...numbers20]), kumSumReduce2([...numbers20]), 'reduce'));
 
 
  // Paklausti kai reikia inicializuoti daugiau nei viena reiksme reduce funkcijoje
