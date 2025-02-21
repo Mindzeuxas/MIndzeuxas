@@ -108,16 +108,16 @@ function generateTrafficReport(arr)
  */
 function findLeastBusyDay(arr)
 {
-    let minValue = Infinity;
-    let minValueIndex;
+    let minValue = Infinity; 
+    let minValueIndex; 
     let minValueEntry = Infinity;
     for(let i = 0; i < arr.length; i++)
     {
-        minValueEntry = Math.min(...arr[i].traffic);
+        minValueEntry = Math.min(...arr[i].traffic); 
         if (minValueEntry < minValue)
         {
-            minValue = minValueEntry;
-            minValueIndex = arr[i].traffic.indexOf(Math.min(...arr[i].traffic));
+            minValue = minValueEntry; 
+            minValueIndex = arr[i].traffic.indexOf(Math.min(...arr[i].traffic)); 
         }         
     }
    switch (minValueIndex)
@@ -131,12 +131,49 @@ function findLeastBusyDay(arr)
      case 6: return 'sekmadienis';
    } 
 }
+
+function findLeastBusyDay2(arr)
+{
+    let leastTrafficADay = [];
+    let dayTraffic = [];
+    let minValue = Infinity;
+    let minIndex = 0;
+    for (let i = 0; i < arr.length; i++)
+    {
+        for(let j = 0; j < arr[i].traffic.length; j++)
+        {
+            dayTraffic[0] = j;
+            dayTraffic[1] = arr[i].traffic[j];
+            if (i === 0)
+            leastTrafficADay.push([...dayTraffic]);
+            else leastTrafficADay[j][1] += dayTraffic[1];
+        }  
+    }
+    for (let i = 0; i < leastTrafficADay.length; i++)
+    {
+        if (minValue > leastTrafficADay[i][1])
+        {
+            minValue = leastTrafficADay[i][1];
+            minIndex = leastTrafficADay[i][0];
+        }      
+    }
+    switch (minIndex)
+    {
+      case 0: return 'pirmadienis';
+      case 1: return 'antradienis';
+      case 2: return 'trečiadienis';
+      case 3: return 'ketvirtadienis';
+      case 4: return 'Penktadienis';
+      case 5: return 'šeštadienis';
+      case 6: return 'sekmadienis';
+    } 
+}
 //==================================================================================================================================================================
 let arrN = generateTrafficReport(cityTraffic)
 
 for (let i = 0; i < arrN.length; i++)
     console.table(arrN[i]);
-console.log(`Mažiausiai užimta diena mieste: ${findLeastBusyDay(cityTraffic)}`);
+console.log(`Mažiausiai užimta diena mieste: ${findLeastBusyDay2(cityTraffic)}`);
 //==============================================================================================================================================================
 
 
