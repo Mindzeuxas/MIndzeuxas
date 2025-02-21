@@ -101,7 +101,6 @@ function generateTrafficReport(arr)
 
 //=============================================================================================================================================================
 
-
 /**
  * [EXTRA] Papildoma užduotis
  * 
@@ -119,8 +118,7 @@ function findLeastBusyDay(arr)
         {
             minValue = minValueEntry;
             minValueIndex = arr[i].traffic.indexOf(Math.min(...arr[i].traffic));
-        }
-            
+        }         
     }
    switch (minValueIndex)
    {
