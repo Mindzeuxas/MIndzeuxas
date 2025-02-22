@@ -197,7 +197,7 @@ function firstSpaceDelete(str)
 
 function twoWordsCompare(str, str2)
 {
-    return str.toLowerCase() === str2.toLowerCase ? true : false;
+    return str.toLowerCase() === str2.toLowerCase() ? true : false;
 }
 
 // 9. Pašalinkite visus skaičius iš teksto "a1b2c3".
