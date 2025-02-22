@@ -50,65 +50,6 @@ This is me [nice ass baby](https://www.facebook.com/mindaugas.samsonas)
 
 niekada <sub>neperskaitysi</sub> sito teksto <sup>taip</sup>, <ins>kaip nori</ins>
 
-This is me [nice ass baby](https://www.facebook.com/mindaugas.samsonas)
-
-1. cia yra pirmas lygis mokymosi
- - o va cia antras
-    - o cia trecias
-    This is me [nice ass baby](https://www.facebook.com/mindaugas.samsonas)
-
-1. cia yra pirmas lygis mokymosi
- - o va cia antras
-    - o cia trecias
-    This is me [nice ass baby](https://www.facebook.com/mindaugas.samsonas)
-
-1. cia yra pirmas lygis mokymosi
- - o va cia antras
-    - o cia trecias
-    This is me [nice ass baby](https://www.facebook.com/mindaugas.samsonas)
-
-1. cia yra pirmas lygis mokymosi
- - o va cia antras
-    - o cia trecias
-    This is me [nice ass baby](https://www.facebook.com/mindaugas.samsonas)
-
-1. cia yra pirmas lygis mokymosi
- - o va cia antras
-    - o cia trecias
-    This is me [nice ass baby](https://www.facebook.com/mindaugas.samsonas)
-
-1. cia yra pirmas lygis mokymosi
- - o va cia antras
-    - o cia trecias
-    This is me [nice ass baby](https://www.facebook.com/mindaugas.samsonas)
-
-1. cia yra pirmas lygis mokymosi
- - o va cia antras
-    - o cia trecias
-    This is me [nice ass baby](https://www.facebook.com/mindaugas.samsonas)
-
-1. cia yra pirmas lygis mokymosi
- - o va cia antras
-    - o cia treciasThis is me [nice ass baby](https://www.facebook.com/mindaugas.samsonas)
-
-1. cia yra pirmas lygis mokymosi
- - o va cia antras
-    - o cia trecias
-    This is me [nice ass baby](https://www.facebook.com/mindaugas.samsonas)
-
-1. cia yra pirmas lygis mokymosi
- - o va cia antras
-    - o cia trecias
-    This is me [nice ass baby](https://www.facebook.com/mindaugas.samsonas)
-
-1. cia yra pirmas lygis mokymosi
- - o va cia antras
-    - o cia trecias
-    This is me [nice ass baby](https://www.facebook.com/mindaugas.samsonas)
-
-1. cia yra pirmas lygis mokymosi
- - o va cia antras
-    - o cia trecias
 
 [cituojamas tekstas](#cituojamas_tekstas)
 

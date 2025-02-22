@@ -357,10 +357,7 @@ function secondBiggestFor(arr)
 // Jūsų kodas čia...
 function secondBiggestSort(arr)
 {
-
     return [...arr].sort((a, b) => b - a)[1];
-    
-    
 }
 console.log(grazusSutvarkymas(14, secondBiggestFor(numbers14), secondBiggestSort(numbers14), 'sort'));
 // =============================================
