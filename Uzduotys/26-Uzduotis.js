@@ -36,7 +36,6 @@ function squareIt(int) {
 
   /*
   const toNumber = x => +x;
-// OR: function toNumber(x) { return +x; }
 
-const arr4 = arr.map(toNumber); // also [442, 424, 31, 35]
+
   */
