@@ -23,14 +23,12 @@ const movies = [
 function recommendMovies(genre, minRating) {
     let filteredMovies = movies;
 
-    if (genre.toLowerCase() !== 'nesvarbu') {
+    if (genre.toLowerCase() !== 'nesvarbu') 
         filteredMovies = filteredMovies.filter(movie => movie.genre.toLowerCase() === genre.toLowerCase());
-    }
 
-    if (minRating.toLowerCase() !== 'nesvarbu') {
+    if (minRating.toLowerCase() !== 'nesvarbu') 
         filteredMovies = filteredMovies.filter(movie => movie.rating >= parseFloat(minRating));
-    }
-
+    
     if (filteredMovies.length > 0) {
         console.log('\nRekomenduojami filmai:');
         filteredMovies.forEach(movie => {
