@@ -23,7 +23,7 @@ function checkResult(student) {
     const name = student[0];
     const marks = student.slice(1); 
     const avg = marks.reduce((sum, mark) => sum + mark, 0) / marks.length;    
-    const gender = name.endsWith('a') ? 'Mokinės' : 'Mokinio';
+    const gender = name.endsWith('s') ? 'Mokinio' : 'Mokinės';
     console.log(`${gender} vardas yra: ${name}`);
     console.log(`Vidurkis: ${avg.toFixed(2)}`);
     if (avg >= 5) 
