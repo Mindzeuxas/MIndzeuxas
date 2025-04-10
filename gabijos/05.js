@@ -26,6 +26,7 @@ const penktadienis = [25, 28, 30, 22, 16, 18, 25];
 const šeštadienis = [20, 15, 25, 12, 8, 12, 15];
 const sekmadienis = [24, 11, 23, 14, 7, 8, 17];
 
+
 function averageTemperature(day) {
     const sum = day.reduce((acc, temp) => acc + temp, 0);
     return (sum / day.length).toFixed(2);
@@ -39,37 +40,30 @@ function minTemperature(day) {
     return Math.min(...day);
 }
 
-function findLowestTemperatureDay(days) {
+function findLowestAndHighestTemperatureDay(days) {
     let lowestDay = days[0];
-    let dayIndex = 0;
+    let highestDay = days[0];
+    let dayIndex1 = 0;
+    let dayIndex2 = 0;
     let lowestTemp = minTemperature(lowestDay);
     for (let i = 1; i < days.length; i++) {
         const currentTemp = minTemperature(days[i]);
         if (currentTemp < lowestTemp) {
             lowestTemp = currentTemp;
             lowestDay = days[i];
-            dayIndex = i;
+            dayIndex1 = i;
         }
-    }
-    return [lowestDay, dayIndex];
-}
-function findHighestTemperatureDay(days) {
-    let highestDay = days[0];
-    let dayIndex = 0;
-    let highestTemp = maxTemperature(highestDay);
-    for (let i = 1; i < days.length; i++) {
-        const currentTemp = maxTemperature(days[i]);
         if (currentTemp > highestTemp) {
             highestTemp = currentTemp;
             highestDay = days[i];
-            dayIndex = i;
+            dayIndex2 = i;
         }
     }
-    return [highestDay, dayIndex];
+    return [lowestDay, dayIndex1, highestDay, dayIndex2];
 }
+
 function lowestAndHighestTemperatureDay(days) {
-    const [lowestDay, lowestIndex] = findLowestTemperatureDay(days);
-    const [highestDay, highestIndex] = findHighestTemperatureDay(days);
+    const [lowestDay, lowestIndex, highestDay, highestIndex] = findLowestAndHighestTemperatureDay(days);
     const daysOfWeek = ['pirmadienis', 'antradienis', 'trečiadienis', 'ketvirtadienis', 'penktadienis', 'šeštadienis', 'sekmadienis'];
     const lowestDayName = daysOfWeek[lowestIndex];
     const highestDayName = daysOfWeek[highestIndex];
