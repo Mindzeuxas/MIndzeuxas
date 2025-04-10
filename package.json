@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "numbers" : "node --watch js/variables/06-numbers.js",
-    "ifai":"node --watch js/03-if.js",
+    "numbers": "node --watch js/variables/06-numbers.js",
+    "ifai": "node --watch js/03-if.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -18,5 +18,9 @@
   "bugs": {
     "url": "https://github.com/MIndzeuxas/MIndzeuxas/issues"
   },
-  "homepage": "https://github.com/MIndzeuxas/MIndzeuxas#readme"
+  "homepage": "https://github.com/MIndzeuxas/MIndzeuxas#readme",
+  "dependencies": {
+    "prompt-sync": "^4.2.0",
+    "readline-sync": "^1.4.10"
+  }
 }
