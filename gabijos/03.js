@@ -37,10 +37,13 @@ function howFarWeGo(speed, time) {
     return speed * time;
 }
 
-function ifWeGetToCityThroughTime(city, speed, time) {
+function ifWeGetToCityThroughTime(city, speed, time, initialTime) {
     if (speed <= 0 || speed > 120)
         return 'greitis yra daugiau nei 120, arba mažiau nei 0, patikrinkite greitį';
     const distance = howFarWeGo(speed, time);
+    if (initialTime !== undefined)
+        if (time - initialTime < 0)
+            return `Per ${time} valand${time === 1 ? 'ą' : time % 1 === 0 ? 'as' : 'os'} nepasieksime miesto ${city.name}, kai greitis yra ${speed} km/h.`;
     if (distance >= city.distanceFromVilnius)
         return `Per ${time} valand${time === 1 ? 'ą' : time % 1 === 0 ? 'as' : 'os'} pasieksime miestą ${city.name}, kai greitis yra ${speed} km/h.`;
     else
@@ -78,9 +81,12 @@ function futherestCityWeCanReach(money, burningRate, kmPerLiter) {
 }
 
 function roadCondition(roadCondition, speed, time, city) {
-    if (roadCondition === "taisomas") time *= 2;
-    else if (roadCondition === "blogas") time *= 1.5;
-    return ifWeGetToCityThroughTime(city, speed, time);
+    let initialTime = city.distanceFromVilnius / speed;
+    if (roadCondition === "taisomas")  initialTime = +((initialTime * 2).toFixed(2));
+    else if (roadCondition === "blogas") initialTime = +((initialTime * 1.5).toFixed(2));
+    else if (roadCondition === "geras") initialTime = +((initialTime).toFixed(2));
+    else return 'Neteisinga kelio sąlyga';
+    return ifWeGetToCityThroughTime(city, speed, time, initialTime);
 }
 
 function testCityWithRoads(city, speed, time) {
@@ -130,8 +136,7 @@ function callTests() {
         const time = parseFloat(prompt());
         console.log("Įveskite kuro sąnaudas (l/100km): ");
         const burningRate = parseFloat(prompt());
-        console.log("Kiek km nuvažiuojate su 1 litru kuro: ");
-        const kmPerLiter = parseFloat(prompt());
+        const kmPerLiter = 100 / burningRate;
         console.log("Įveskite biudžetą (eurais): ");
         const money = parseFloat(prompt());
         if (isNaN(speed) || isNaN(time) || isNaN(burningRate) || isNaN(kmPerLiter) || isNaN(money)) {
