@@ -50,16 +50,16 @@ function ifWeGetToCityThroughTime(city, speed, time, initialTime) {
         return `Per ${time} valand${time === 1 ? 'ą' : time % 1 === 0 ? 'as' : 'os'} nepasieksime miesto ${city.name}, kai greitis yra ${speed} km/h.`;
 }
 
-function canWeReachCity(money, burningRate, speed, kmPerLiter, city) {
-    if (speed <= 0 || speed > 120)
-        return 'Greitis yra daugiau nei 120, arba mažiau nei 0, patikrinkite greitį';
-    const maxDistance = (money / burningRate) * kmPerLiter;
+function canWeReachCity(money, fuelPrice, burningRate, kmPerLiter, city) {
     const initialFuel = 30;
-    const totalDistance = initialFuel * kmPerLiter + maxDistance;
-    if (city.distanceFromVilnius <= totalDistance) {
-        return `Galime pasiekti miestą ${city.name}, nes turime pakankamai kuro (${totalDistance.toFixed(2)} km)`;
+    const extraFuel = money / fuelPrice; // kiek papildomai galim įsipilti kuro už pinigus
+    const totalFuel = initialFuel + extraFuel;
+    const maxDistance = totalFuel * kmPerLiter;
+
+    if (city.distanceFromVilnius <= maxDistance) {
+        return `Galime pasiekti miestą ${city.name}, nes turime pakankamai kuro (${maxDistance.toFixed(2)} km su ${totalFuel.toFixed(2)} l).`;
     } else {
-        return `Negalime pasiekti miesto ${city.name}, nes jis yra per toli (${city.distanceFromVilnius} km, galime nuvažiuoti tik ${totalDistance.toFixed(2)} km).`;
+        return `Negalime pasiekti miesto ${city.name}, nes jis yra per toli (${city.distanceFromVilnius} km, galime nuvažiuoti tik ${maxDistance.toFixed(2)} km su ${totalFuel.toFixed(2)} l).`;
     }
 }
 
@@ -99,12 +99,12 @@ function testCityWithRoads(city, speed, time) {
     });
 }
 
-function testCity(city, speed, time, burningRate, kmPerLiter, money) {
+function testCity(city, speed, time, burningRate, kmPerLiter, money, fuelprice) {
     console.log(`Ar pasieksime ${city.name} per ${time} valand${time === 1 ? 'ą' : 'as'} su greičiu ${speed} km/h?`);
     console.log(ifWeGetToCityThroughTime(city, speed, time));
     console.log('--------------------------------');
-    console.log(`Ar galime pasiekti miestą ${city.name} su biudžetu ${money} €, degalų sąnaudos ${burningRate} l/100km, greitis ${speed} km/h, km/l: ${kmPerLiter}?`);
-    console.log(canWeReachCity(money, burningRate, speed, kmPerLiter, city));
+    console.log(`Ar galime pasiekti miestą ${city.name} su biudžetu ${money} €, degalų sąnaudos ${+(burningRate.toFixed(2))} l/100km, greitis ${speed} km/h, km/l: ${+(kmPerLiter.toFixed(2))} ir kuro kaina yra ${fuelprice} eur/l?`);
+    console.log(canWeReachCity(money, fuelprice, burningRate, kmPerLiter, city));
     console.log('--------------------------------');
     console.log(`Ar tai yra tolimiausias miestas, kurį galime pasiekti nuo Vilniaus?`);
     futherestCityWeCanReach(money, burningRate, speed, kmPerLiter);
@@ -114,41 +114,45 @@ function testCity(city, speed, time, burningRate, kmPerLiter, money) {
     console.log(`\n\n`);
 }
 
+function getValidNumberInput(text) {
+    while (true) {
+        const input = prompt(text);
+        const number = parseFloat(input.replace(",", ".")); // Pakeičia kablelį į tašką
+        if (!isNaN(number)) return number;
+        console.log("Neteisinga reikšmė. Įveskite skaičių.");
+    }
+}
+
 function callTests() {
     console.log("\n");
-    console.log("Sveiki atvykę į miesto atstumų informacijos programą!");
+    console.log("🛣️ Sveiki atvykę į miesto atstumų informacijos programą!");
+
     while (true) {
-        console.log("Pasirinkite miestą:");
+        console.log("\n📍 Pasirinkite miestą:");
         cities.forEach((city, index) => {
             console.log(`${index + 1}. ${city.name}`);
         });
         console.log("\n");
-        console.log("Įveskite miesto numerį: ");
-        const cityIndex = parseInt(prompt()) - 1;
+        const cityIndex = getValidNumberInput("Įveskite miesto numerį: ") - 1;
         if (cityIndex < 0 || cityIndex >= cities.length) {
             console.log("Neteisingas miesto numeris.");
             continue;
         }
         const city = cities[cityIndex];
-        console.log("Įveskite greitį (km/h): ");
-        const speed = parseFloat(prompt());
-        console.log("Įveskite laiką (valandos): ");
-        const time = parseFloat(prompt());
-        console.log("Įveskite kuro sąnaudas (l/100km): ");
-        const burningRate = parseFloat(prompt());
+        const speed = getValidNumberInput("Įveskite greitį (km/h): ");
+        const time = getValidNumberInput("Įveskite laiką (valandomis): ");
+        const burningRate = getValidNumberInput("Įveskite kuro sąnaudas (l/100km): ");
+        const money = getValidNumberInput("Įveskite biudžetą (eurais): ");
+        const fuelPrice = getValidNumberInput("Įveskite kuro kainą 1 litrui (eurais): ");
+
         const kmPerLiter = 100 / burningRate;
-        console.log("Įveskite biudžetą (eurais): ");
-        const money = parseFloat(prompt());
-        if (isNaN(speed) || isNaN(time) || isNaN(burningRate) || isNaN(kmPerLiter) || isNaN(money)) {
-            console.log("Visi įvesti duomenys turi būti skaičiai.");
-            continue;
-        }
-        console.log('\n');
-        testCity(city, speed, time, burningRate, kmPerLiter, money);
-        console.log("Ar norite išbandyti kitą miestą? (taip/ne): ");
-        const anotherTest = prompt();
-        if (anotherTest.toLowerCase() !== 'taip') {
-            console.log("Ačiū, kad naudojotės mūsų programa!");
+
+        console.log('\n📊 Skaičiavimai:\n');
+        testCity(city, speed, time, burningRate, kmPerLiter, money, fuelPrice);
+
+        const anotherTest = prompt("Ar norite išbandyti kitą miestą? (taip/ne): ").toLowerCase();
+        if (anotherTest !== 'taip') {
+            console.log("Ačiū, kad naudojotės mūsų programa! 🚗💨");
             break;
         }
     }
